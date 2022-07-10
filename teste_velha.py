@@ -34,3 +34,6 @@ def test_is_winner():
 
   matrix_test = [(0,2,1),(1,2,0),(0,2,0)]
   assert run(matrix_test) == 2
+
+  matrix_test = [(2,0,1),(1,2,0),(0,0,2)]
+  assert run(matrix_test) == 2
