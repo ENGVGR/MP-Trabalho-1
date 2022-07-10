@@ -27,7 +27,7 @@ def test_not_impossible():
 def test_is_impossible():
   matrix_test = [(2,0,1),(0,2,0),(0,2,0)]
   assert run(matrix_test) == -2
-  
+
   matrix_test = [(0,2,1),(0,2,1),(0,2,1)]
   assert run(matrix_test) == -2
 

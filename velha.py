@@ -28,37 +28,52 @@ def impossible(matrix):
   else:
     return False
 
-def horizontal_winner(matrix):
-  for i in range(3):
+def horizontal_winner(matrix, value):
+  for i in range(len(matrix)):
     if (matrix[i][0] == matrix[i][1] and matrix[i][1] == matrix[i][2]
-    and matrix[i][0] != 0):
-      return matrix[i][0]
+    and matrix[i][0] == value):
+      return 1
   return False
 
-def vertical_winner(matrix):
-  for i in range(3):
+def vertical_winner(matrix, value):
+  for i in range(len(matrix)):
     if (matrix[0][i] == matrix[1][i] and matrix[1][i] == matrix[2][i]
-    and matrix[0][i] != 0):
-      return matrix[0][i]
+    and matrix[0][i] == value):
+      return 1
   return False
 
-def cross_winner(matrix):
+def cross_winner(matrix, value):
   if (matrix[0][0] == matrix[1][1] and matrix[1][1] == matrix[2][2]
-  and matrix[0][0] != 0):
-    return matrix[0][0]
+  and matrix[0][0] == value):
+    return 1
   return False
 
 def result(matrix):
-  h_winner = horizontal_winner(matrix)
-  v_winner = vertical_winner(matrix)
-  c_winner = cross_winner(matrix)
+  h_winner_x = horizontal_winner(matrix, 1)
+  h_winner_circle = horizontal_winner(matrix, 2)
+  v_winner_x = vertical_winner(matrix, 1)
+  v_winner_circle = vertical_winner(matrix, 2)
+  c_winner_x = cross_winner(matrix, 1)
+  c_winner_circle = cross_winner(matrix, 2)
 
-  if h_winner:
-    return h_winner
-  if v_winner:
-    return v_winner
-  if c_winner:
-    return c_winner
+  amount_winners = (h_winner_x + h_winner_circle + v_winner_x + v_winner_circle
+    + c_winner_x + c_winner_circle)
+
+  if amount_winners > 1:
+    return -2
+
+  if h_winner_x:
+    return 1
+  elif h_winner_circle:
+    return 2
+  elif v_winner_x:
+    return 1
+  elif v_winner_circle:
+    return 2
+  elif c_winner_x:
+    return 1
+  elif c_winner_circle:
+    return 2
   else:
     return 0
 
