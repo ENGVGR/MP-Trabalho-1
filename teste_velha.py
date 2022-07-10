@@ -20,11 +20,11 @@ def test_wrong_value():
   matrix_test = [(2,0,1),(6,2,1),(0,2,0)]
   assert run(matrix_test) == "Valor incorreto"
 
-def test_not_undefined():
+def test_not_impossible():
   matrix_test = [(2,0,1),(2,0,0),(2,1,0)]
   assert run(matrix_test) != -1
 
-def test_is_undefined():
+def test_is_impossible():
   matrix_test = [(2,0,1),(0,2,0),(0,2,0)]
   assert run(matrix_test) == -1
 
