@@ -62,6 +62,9 @@ def result(matrix):
   else:
     return 0
 
+def undefined(matrix):
+  return (0 in matrix[0] or 0 in matrix[1] or 0 in matrix[2])
+
 def run(matrix):
   if wrong_length(matrix):
     erro = "Tamanho incorreto"
@@ -73,4 +76,7 @@ def run(matrix):
     erro = -2
     return erro
   else:
-    return result(matrix)
+    if (result(matrix) == 0 and undefined(matrix)):
+      return -1
+    else:
+      return result(matrix)
