@@ -42,13 +42,23 @@ def vertical_winner(matrix):
       return matrix[0][i]
   return False
 
+def cross_winner(matrix):
+  if (matrix[0][0] == matrix[1][1] and matrix[1][1] == matrix[2][2]
+  and matrix[0][0] != 0):
+    return matrix[0][0]
+  return False
+
 def result(matrix):
   h_winner = horizontal_winner(matrix)
   v_winner = vertical_winner(matrix)
+  c_winner = cross_winner(matrix)
+
   if h_winner:
     return h_winner
   if v_winner:
     return v_winner
+  if c_winner:
+    return c_winner
   else:
     return 0
 
