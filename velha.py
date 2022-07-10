@@ -28,6 +28,30 @@ def undefined(matrix):
   else:
     return False
 
+def horizontal_winner(matrix):
+  for i in range(3):
+    if (matrix[i][0] == matrix[i][1] and matrix[i][1] == matrix[i][2]
+    and matrix[i][0] != 0):
+      return matrix[i][0]
+  return False
+
+def vertical_winner(matrix):
+  for i in range(3):
+    if (matrix[0][i] == matrix[1][i] and matrix[1][i] == matrix[2][i]
+    and matrix[0][i] != 0):
+      return matrix[0][i]
+  return False
+
+def result(matrix):
+  h_winner = horizontal_winner(matrix)
+  v_winner = vertical_winner(matrix)
+  if h_winner:
+    return h_winner
+  if v_winner:
+    return v_winner
+  else:
+    return 0
+
 def run(matrix):
   if wrong_length(matrix):
     erro = "Tamanho incorreto"
@@ -39,4 +63,4 @@ def run(matrix):
     erro = -1
     return erro
   else:
-    return 0
+    return result(matrix)
