@@ -38,6 +38,10 @@ def test_is_winner():
   matrix_test = [(2,0,1),(1,2,0),(0,0,2)]
   assert run(matrix_test) == 2
 
+def test_is_draw():
+  matrix_test = [(2,2,1),(1,2,2),(2,1,1)]
+  assert run(matrix_test) == 0
+
 def test_not_undefined():
   matrix_test = [(0,2,1),(0,2,1),(0,0,1)]
   assert run(matrix_test) == 1
