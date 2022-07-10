@@ -1,9 +1,9 @@
-import velha
+from velha import run
 
-def test_length_right():
+def testLengthRight():
   matrixTest = [(0,0,0),(0,0,0),(0,0,0)]
   assert run(matrixTest) != "Tamanho incorreto" 
 
-def test_length_wrong():
+def testLengthWrong():
   matrixTest = [(0,0,0),(0,0,0)]
   assert run(matrixTest) == "Tamanho incorreto" 
