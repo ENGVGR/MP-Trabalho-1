@@ -36,7 +36,7 @@ def run(matrix):
     erro = "Valor incorreto"
     return erro
   if undefined(matrix):
-    erro = "Resultado indefinido"
+    erro = -1
     return erro
   else:
     return 0

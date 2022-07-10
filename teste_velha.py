@@ -22,8 +22,15 @@ def test_wrong_value():
 
 def test_not_undefined():
   matrix_test = [(2,0,1),(2,0,0),(2,1,0)]
-  assert run(matrix_test) != "Resultado indefinido"
+  assert run(matrix_test) != -1
 
 def test_is_undefined():
   matrix_test = [(2,0,1),(0,2,0),(0,2,0)]
-  assert run(matrix_test) == "Resultado indefinido"
+  assert run(matrix_test) == -1
+
+def test_is_winner():
+  matrix_test = [(0,2,1),(0,2,1),(0,0,1)]
+  assert run(matrix_test) == 1
+
+  matrix_test = [(0,2,1),(1,2,0),(0,2,0)]
+  assert run(matrix_test) == 2
