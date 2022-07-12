@@ -31,6 +31,9 @@ def test_is_impossible():
   matrix_test = [(0,2,1),(0,2,1),(0,2,1)]
   assert run(matrix_test) == -2
 
+  matrix_test = [(2,1,2),(1,2,1),(2,1,2)]
+  assert run(matrix_test) == -2
+
 def test_is_winner():
   matrix_test = [(0,2,1),(0,2,1),(0,0,1)]
   assert run(matrix_test) == 1
