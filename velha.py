@@ -29,23 +29,35 @@ def impossible(matrix):
     return False
 
 def horizontal_winner(matrix, value):
+  n_vitorias = 0
   for i in range(len(matrix)):
     if (matrix[i][0] == matrix[i][1] and matrix[i][1] == matrix[i][2]
     and matrix[i][0] == value):
-      return 1
+      n_vitorias += 1
+  if n_vitorias > 0:
+    return n_vitorias
   return False
 
 def vertical_winner(matrix, value):
+  n_vitorias = 0
   for i in range(len(matrix)):
     if (matrix[0][i] == matrix[1][i] and matrix[1][i] == matrix[2][i]
     and matrix[0][i] == value):
-      return 1
+      n_vitorias += 1
+  if n_vitorias > 0:
+    return n_vitorias
   return False
 
 def cross_winner(matrix, value):
+  n_vitorias = 0
   if (matrix[0][0] == matrix[1][1] and matrix[1][1] == matrix[2][2]
   and matrix[0][0] == value):
-    return 1
+    n_vitorias += 1
+  if (matrix[0][2] == matrix[1][1] and matrix[1][1] == matrix[2][0]
+  and matrix[0][2] == value):
+    n_vitorias += 1
+  if n_vitorias > 0:
+    return n_vitorias
   return False
 
 def result(matrix):
